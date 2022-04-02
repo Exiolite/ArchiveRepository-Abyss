@@ -1,7 +1,7 @@
 ﻿using Objects.SpaceObjects;
 using Objects.SpaceObjects.Dynamic;
-using Statics;
 using UnityEngine;
+using Utilities;
 
 namespace Modules.Movements
 {

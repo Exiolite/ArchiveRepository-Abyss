@@ -133,7 +133,6 @@ MonoBehaviour:
   - {fileID: -3030650870757212511, guid: a94b2390360e1a34aa7dd7402497cd22, type: 3}
   - {fileID: 2715010388870108313, guid: a94b2390360e1a34aa7dd7402497cd22, type: 3}
   - {fileID: 5017093421344364532, guid: a94b2390360e1a34aa7dd7402497cd22, type: 3}
-  _asteroidFieldHolder: {fileID: 167523731}
-  _maxDistance: 1000
-  _asteroidHandler: {fileID: 8525619111763308605, guid: c52367b06926707409608dfee264c287,
-    type: 3}
+  _verticalAndHorizontalMax: 800
+  _maxDepth: 5000
+  _minDepth: 2500

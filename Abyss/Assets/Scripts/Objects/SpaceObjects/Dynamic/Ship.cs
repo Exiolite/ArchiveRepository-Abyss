@@ -2,8 +2,8 @@
 using Modules.HealthStats;
 using Modules.Movements;
 using Objects.Turrets;
-using Statics;
 using UnityEngine;
+using Utilities;
 
 namespace Objects.SpaceObjects.Dynamic
 {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Statics
+namespace Utilities
 {
     public static class Randomizer
     {
@@ -14,7 +14,7 @@ namespace Statics
             return position;
         }
         
-        public static Vector3 GenerateAsteroids(float minRange, float maxRange)
+        public static Vector3 GetVector3InCircle(float minRange, float maxRange)
         {
             Vector3 position;
             do

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1346541170172816631}
   - component: {fileID: 1117901202319785921}
   m_Layer: 0
-  m_Name: SarsHolder
+  m_Name: StarField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _star: {fileID: 4830491158831857474, guid: 427f4505f23b54147bdb8705e4ba3029, type: 3}
+  _starsAmount: 120
+  _rangeNumber: 5000
+  _maxScale: 0.4

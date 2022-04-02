@@ -1,7 +1,7 @@
 ﻿using Objects.SpaceObjects;
 using UnityEngine;
 
-namespace Statics
+namespace Utilities
 {
     public static class RangeFinder
     {

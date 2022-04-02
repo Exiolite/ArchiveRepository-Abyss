@@ -4,7 +4,7 @@ namespace Events
 {
     public static class BackGroundEvents
     {
-        public static readonly DestroyBackground DestroyBackground = new DestroyBackground();
+        public static readonly DestroySpaceBackground DestroySpaceBackground = new DestroySpaceBackground();
     }
-    public class DestroyBackground : UnityEvent {}
+    public class DestroySpaceBackground : UnityEvent {}
 }

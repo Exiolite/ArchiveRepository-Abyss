@@ -4,10 +4,10 @@ using Modules.Movements;
 using Objects.SpaceObjects;
 using Objects.SpaceObjects.Dynamic;
 using Objects.SpaceObjects.Static;
-using Statics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities;
 
 namespace Objects.NavigationCircle
 {

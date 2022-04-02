@@ -1,4 +1,5 @@
-﻿using Events;
+using Events;
+using Objects.Background;
 using Objects.SpaceObjects;
 using Objects.SpaceObjects.Dynamic;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace Core.LevelManaging
             DataBase = new SpaceObjectsData();
             _levelLoader = new LevelLoader(this);
             _levelCreator = new LevelCreator(this);
+            ESpaceBackground.InstantiateSpaceBackground.Invoke();
         }
 
         
@@ -38,6 +40,7 @@ namespace Core.LevelManaging
         public void CreateNextLevel()
         {
             LevelEvent.DestroyAllExcludePlayer.Invoke(InstancedPlayer);
+            ESpaceBackground.RandomizeSpaceBackground.Invoke();
             InstancedPlayer.transform.position = new Vector3(0,0,0);
             Factory.ResetId(true);
             _levelCreator.CreateLevel();

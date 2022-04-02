@@ -1,4 +1,4 @@
-﻿using Objects.SpaceObjects;
+﻿using System.SpaceObjects;
 using UnityEngine;
 
 namespace Utilities

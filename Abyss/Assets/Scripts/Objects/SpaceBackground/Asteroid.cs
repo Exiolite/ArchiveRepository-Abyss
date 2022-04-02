@@ -2,7 +2,7 @@
 using UnityEngine;
 using Utilities;
 
-namespace Objects.BackGround
+namespace Objects.SpaceBackground
 {
     public class Asteroid : MonoBehaviour
     {

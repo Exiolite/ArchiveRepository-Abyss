@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using Objects.BackGround;
 using UnityEngine;
 
-namespace Objects.Background
+namespace Objects.SpaceBackground
 {
     public class AsteroidField : MonoBehaviour
     {

@@ -1,12 +1,8 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
-using Objects.BackGround;
-using Objects.SpaceObjects.Dynamic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utilities;
 
-namespace Objects.Background
+namespace Objects.SpaceBackground
 {
     public class Planet : MonoBehaviour
     {

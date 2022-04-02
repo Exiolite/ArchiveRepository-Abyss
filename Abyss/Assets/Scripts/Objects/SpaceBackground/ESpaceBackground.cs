@@ -1,6 +1,6 @@
 ﻿using UnityEngine.Events;
 
-namespace Objects.Background
+namespace Objects.SpaceBackground
 {
     public static class ESpaceBackground
     {

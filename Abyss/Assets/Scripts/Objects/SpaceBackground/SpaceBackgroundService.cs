@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Objects.Background
+namespace Objects.SpaceBackground
 {
     public class SpaceBackgroundService : MonoBehaviour
     {

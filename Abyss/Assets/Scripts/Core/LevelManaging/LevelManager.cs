@@ -1,5 +1,5 @@
 using Events;
-using Objects.Background;
+using Objects.SpaceBackground;
 using Objects.SpaceObjects;
 using Objects.SpaceObjects.Dynamic;
 using UnityEngine;

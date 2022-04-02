@@ -1,4 +1,6 @@
+using System.Camera;
 using System.Core;
+using System.Navigation;
 using System.SpaceBackground;
 using System.SpaceObjects;
 using System.SpaceObjects.Dynamic;
@@ -13,7 +15,6 @@ namespace System.LevelManaging
         public Ship InstancedPlayer { get; private set; }
         public Factory Factory { get; }
         
-        private readonly LevelLoader _levelLoader;
         private readonly LevelCreator _levelCreator;
 
 
@@ -22,7 +23,6 @@ namespace System.LevelManaging
         {
             Factory = factory;
             DataBase = new SpaceObjectsData();
-            _levelLoader = new LevelLoader(this);
             _levelCreator = new LevelCreator(this);
             ESpaceBackground.InstantiateSpaceBackground.Invoke();
         }
@@ -35,7 +35,10 @@ namespace System.LevelManaging
             DepthCounter++;
         }
 
-        public void SetPlayer(Ship target) => InstancedPlayer = target;
+        public void SetPlayer(Ship target)
+        {
+            InstancedPlayer = target;
+        }
 
         public void CreateNextLevel()
         {

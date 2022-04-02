@@ -1,4 +1,5 @@
-﻿using System.Core;
+﻿using System.Controller;
+using System.Core;
 using System.Movements;
 using System.SpaceObjects;
 using System.SpaceObjects.Dynamic;
@@ -8,13 +9,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
 
-namespace System.NavigationCircle
+namespace System.Navigation
 {
     public class NavigationArrow : ObjectBehaviour
     {
         //Arrow
         [SerializeField] private GameObject _toTargetSpring;
-        [SerializeField] private GameObject _canvasRotator;
+        [SerializeField] private GameObject _canvasPivot;
         [SerializeField] private ArrowCollider _arrowCollider;
         //TargetCanvas
         [SerializeField] private TextMeshProUGUI _objectName;
@@ -23,14 +24,14 @@ namespace System.NavigationCircle
         
         [SerializeField, HideInInspector] private Movement _movement;
         
-        private SpaceObject _target;
+        public SpaceObject Target { get; private set; }
 
         
         
         public void SetTarget(SpaceObject target)
         {
-            _target = target;
-            _objectName.text = _target.ObjName;
+            Target = target;
+            _objectName.text = Target.ObjName;
             if (target is Ship) _objectName.color = Color.red;
             else if (target is Station) _objectName.color = Color.white;
             else if (target is Abyss) _objectName.color = Color.magenta;
@@ -40,20 +41,20 @@ namespace System.NavigationCircle
 
         public void SetPlayersTarget()
         {
-            LevelManager.InstancedPlayer.SetTarget(_target);
+            EPlayer.SetPlayersShipTarget.Invoke(Target);
         }
         
         
         
         protected override void Initialize()
         {
-            NavigationEvent.RemoveArrow.AddListener(DestroyItSelf);
+            ENavigationCircle.RemoveNavigationCircleTarget.AddListener(DestroyItSelf);
         }
 
         protected override void Execute()
         {
-            if (_target == null) return;
-            _movement.HardRotateToTarget(transform, _target.transform);
+            if (Target == null) return;
+            _movement.HardRotateToTarget(transform, Target.transform);
             UpdateArrow();
         }
 
@@ -67,9 +68,9 @@ namespace System.NavigationCircle
 
         private void UpdateTargetStats()
         {
-            if (_target.GetType() == typeof(Ship))
+            if (Target.GetType() == typeof(Ship))
             {
-                var targetShip = (Ship) _target;
+                var targetShip = (Ship) Target;
                 _shield.fillAmount = targetShip.HealthStats.Shield.GetPercent();
                 _hitPoints.fillAmount = targetShip.HealthStats.HitPoints.GetPercent();
             }
@@ -82,8 +83,8 @@ namespace System.NavigationCircle
 
         private void UpdateSpring()
         {
-            _canvasRotator.transform.eulerAngles = new Vector3(0,0,0);
-            var distanceToTarget = RangeFinder.CalculateDistance(transform, _target);
+            _canvasPivot.transform.eulerAngles = new Vector3(0,0,0);
+            var distanceToTarget = RangeFinder.CalculateDistance(transform, Target);
             if (distanceToTarget < 17.5f)
             {
                 _toTargetSpring.transform.localPosition = new Vector3(distanceToTarget, 0,0);
@@ -98,9 +99,9 @@ namespace System.NavigationCircle
 
         private void DestroyItSelf(SpaceObject target)
         {
-            if (_target == target)
+            if (Target == target)
             {
-                NavigationEvent.RemoveArrow.RemoveListener(DestroyItSelf);
+                ENavigationCircle.RemoveNavigationCircleTarget.RemoveListener(DestroyItSelf);
                 Destroy(gameObject);
             }
         }

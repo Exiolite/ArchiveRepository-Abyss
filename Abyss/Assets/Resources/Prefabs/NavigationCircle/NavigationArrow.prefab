@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _toTargetSpring: {fileID: 4924704500119647332}
-  _canvasRotator: {fileID: 8250594742245493841}
+  _canvasPivot: {fileID: 8250594742245493841}
   _arrowCollider: {fileID: 1816910644064491923}
   _objectName: {fileID: 965086658132776115}
   _hitPoints: {fileID: 6124323873779071487}
@@ -449,7 +449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3649264229891640903}
   m_Layer: 0
-  m_Name: CanvasRotator
+  m_Name: CanvasPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

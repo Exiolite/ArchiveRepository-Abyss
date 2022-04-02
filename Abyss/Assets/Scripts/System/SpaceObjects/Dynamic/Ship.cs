@@ -1,6 +1,6 @@
 ﻿using System.LevelManaging;
 using System.Movements;
-using System.NavigationCircle;
+using System.Navigation;
 using System.PlayerInput.Swipe;
 using System.Turrets;
 using UnityEngine;
@@ -61,7 +61,7 @@ namespace System.SpaceObjects.Dynamic
                 SwipeEvent.SwipedUp.RemoveListener(DoMicroWarp);
             }
             
-            NavigationEvent.RemoveArrow.Invoke(this);
+            ENavigationCircle.RemoveNavigationCircleTarget.Invoke(this);
             LevelManager.SpawnExplosion(transform);
             LevelManager.SpawnSmallContainer(transform);
             DestroyItSelf();

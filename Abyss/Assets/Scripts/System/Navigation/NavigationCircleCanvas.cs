@@ -2,7 +2,7 @@
 using System.Gui;
 using UnityEngine;
 
-namespace System.NavigationCircle
+namespace System.Navigation
 {
     public class NavigationCircleCanvas : ObjectBehaviour
     {

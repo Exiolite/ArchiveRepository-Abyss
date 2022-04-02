@@ -2,7 +2,7 @@
 using System.SpaceObjects.Dynamic;
 using Utilities;
 
-namespace System.Bot
+namespace System.Controller
 {
     public class Bot : ObjectBehaviour
     {

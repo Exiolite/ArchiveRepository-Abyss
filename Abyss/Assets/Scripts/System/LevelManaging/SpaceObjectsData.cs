@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Effects;
 using System.Linq;
+using System.Navigation;
 using System.SpaceObjects;
 using System.SpaceObjects.Dynamic;
 using UnityEngine;
@@ -22,7 +23,7 @@ namespace System.LevelManaging
         private SpaceObject[] _shipYards;
         private SpaceObject[] _shops;
 
-        private NavigationCircle.NavigationCircle _navigationCircle;
+        private NavigationCircle _navigationCircle;
 
         private ParticleSystem _shieldDamage;
         private ShipExplode _shipExplode;
@@ -168,7 +169,7 @@ namespace System.LevelManaging
             _shipYards = UnityEngine.Resources.LoadAll<SpaceObject>("Prefabs/SpaceObjects/Static/ShipYards/");
             _shops = UnityEngine.Resources.LoadAll<SpaceObject>("Prefabs/SpaceObjects/Static/Shops/");
             
-            _navigationCircle = UnityEngine.Resources.Load<NavigationCircle.NavigationCircle>("Prefabs/NavigationCircle/NavigationCircle");
+            _navigationCircle = UnityEngine.Resources.Load<NavigationCircle>("Prefabs/NavigationCircle/NavigationCircle");
             
             _shieldDamage = UnityEngine.Resources.Load<ParticleSystem>("Prefabs/Effects/Particles/ShieldDamage");
             _shipExplode = UnityEngine.Resources.Load<ShipExplode>("Prefabs/Effects/Particles/ShipExplosion");

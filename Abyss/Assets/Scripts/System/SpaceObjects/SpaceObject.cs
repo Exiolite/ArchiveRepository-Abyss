@@ -1,6 +1,6 @@
 ﻿using System.Core;
 using System.LevelManaging;
-using System.NavigationCircle;
+using System.Navigation;
 using System.SpaceObjects.Dynamic;
 using UnityEngine;
 
@@ -16,7 +16,7 @@ namespace System.SpaceObjects
 
         public void DestroyItSelf()
         {
-            NavigationEvent.RemoveArrow.Invoke(this);
+            ENavigationCircle.RemoveNavigationCircleTarget.Invoke(this);
             Destroy(gameObject);
         }
 
@@ -26,11 +26,11 @@ namespace System.SpaceObjects
             if (this is Ship)
             {
                 var ship = (Ship) this;
-                if (ship.ShipPriceCredits == 0) NavigationEvent.AddArrow.Invoke(this);
+                if (ship.ShipPriceCredits == 0) ENavigationCircle.AddNavigationCircleTarget.Invoke(this);
             }
             else
             {
-                NavigationEvent.AddArrow.Invoke(this);
+                ENavigationCircle.AddNavigationCircleTarget.Invoke(this);
             }
         }
 

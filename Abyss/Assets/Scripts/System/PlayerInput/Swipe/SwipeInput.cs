@@ -4,7 +4,7 @@ namespace System.PlayerInput.Swipe
 {
     public class SwipeInput : MonoBehaviour
     {
-        //SwipteInput
+        //SwipeInput
         private const float MaxSwipeTime = 0.5f;
         private const float MinSwipeDistance = 0.17f;
 

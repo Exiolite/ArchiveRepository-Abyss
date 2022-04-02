@@ -12,8 +12,8 @@ namespace System.Core
 
         private void Start()
         {
-            LevelManager = System.Core.Core.Instance.LevelManager;
-            PlayersAccount = System.Core.Core.Instance.PlayersAccount;
+            LevelManager = Core.Instance.LevelManager;
+            PlayersAccount = Core.Instance.PlayersAccount;
             Initialize();
         }
 

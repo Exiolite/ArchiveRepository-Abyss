@@ -1,7 +1,7 @@
 ﻿using System.Core;
 using UnityEngine;
 
-namespace System.NavigationCircle
+namespace System.Navigation
 {
     public class ArrowCollider : ObjectBehaviour
     {

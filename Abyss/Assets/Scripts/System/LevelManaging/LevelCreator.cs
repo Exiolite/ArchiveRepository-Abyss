@@ -1,4 +1,7 @@
-﻿namespace System.LevelManaging
+﻿using System.Camera;
+using System.Controller;
+
+namespace System.LevelManaging
 {
     public class LevelCreator
     {
@@ -24,8 +27,10 @@
             var playersShip = _levelManager.DataBase.TryFindPlayersShip(playerShipName, out var success);
             if (success)
             {
-                _levelManager.SetPlayer(_levelManager.Factory.SpawnPlayer(playersShip));
+                var playerShip = _levelManager.Factory.SpawnPlayer(playersShip);
+                playerShip.gameObject.AddComponent<Player>();
                 _levelManager.Factory.SpawnObject(_levelManager.DataBase.GetNavigationCircle());
+                _levelManager.SetPlayer(playersShip);
             }
         }
 

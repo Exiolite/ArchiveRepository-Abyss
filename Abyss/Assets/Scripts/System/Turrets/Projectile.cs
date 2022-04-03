@@ -1,24 +1,23 @@
 ﻿using System.Collections;
+using System.Health;
 using System.Movements;
 using System.SpaceObjects;
-using System.SpaceObjects.Dynamic;
 using UnityEngine;
 
 namespace System.Turrets
 {
     public class Projectile : MonoBehaviour
     {
-        [SerializeField] private float _damage;
+        public Damage Damage => _damage;
+        [SerializeField] private Damage _damage;
+
+        public Movement Movement => _movement;
         [SerializeField] private Movement _movement;
 
-        public float Damage => _damage;
-
+        
         private SpaceObject _target;
 
-
-        public void SetTarget(SpaceObject target) => _target = target;
-
-
+        
         private void Start()
         {
             StartCoroutine(Destroy());
@@ -26,12 +25,9 @@ namespace System.Turrets
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (_target == null) return;
-            if (other.gameObject == _target.gameObject)
+            if (other.TryGetComponent<Ship>(out var ship))
             {
-                var dynamicTarget = (Ship) _target;
-                dynamicTarget.ApplyDamage(_damage);
-                Destroy(gameObject);
+                ship.HealthStats.TryApplyDamage(_damage);
             }
         }
 
@@ -39,6 +35,13 @@ namespace System.Turrets
         {
             _movement.HardMoveForward(transform);
         }
+
+        
+        public void SetTarget(SpaceObject target)
+        {
+            _target = target;
+        }
+
 
         private IEnumerator Destroy()
         {

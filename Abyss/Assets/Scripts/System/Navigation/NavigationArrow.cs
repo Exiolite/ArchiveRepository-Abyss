@@ -1,9 +1,6 @@
 ﻿using System.Controller;
-using System.Core;
 using System.Movements;
 using System.SpaceObjects;
-using System.SpaceObjects.Dynamic;
-using System.SpaceObjects.Static;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +8,7 @@ using Utilities;
 
 namespace System.Navigation
 {
-    public class NavigationArrow : ObjectBehaviour
+    public class NavigationArrow : MonoBehaviour
     {
         //Arrow
         [SerializeField] private GameObject _toTargetSpring;
@@ -33,7 +30,6 @@ namespace System.Navigation
             Target = target;
             _objectName.text = Target.ObjName;
             if (target is Ship) _objectName.color = Color.red;
-            else if (target is Station) _objectName.color = Color.white;
             else if (target is Abyss) _objectName.color = Color.magenta;
             else if (target is Container) _objectName.color = Color.yellow;
             else _objectName.color = Color.white;
@@ -46,12 +42,12 @@ namespace System.Navigation
         
         
         
-        protected override void Initialize()
+        private void Awake()
         {
             ENavigationCircle.RemoveNavigationCircleTarget.AddListener(DestroyItSelf);
         }
 
-        protected override void Execute()
+        private void Update()
         {
             if (Target == null) return;
             _movement.HardRotateToTarget(transform, Target.transform);

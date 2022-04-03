@@ -1,9 +1,6 @@
-using System.Camera;
 using System.Core;
-using System.Navigation;
 using System.SpaceBackground;
 using System.SpaceObjects;
-using System.SpaceObjects.Dynamic;
 using UnityEngine;
 
 namespace System.LevelManaging
@@ -42,7 +39,7 @@ namespace System.LevelManaging
 
         public void CreateNextLevel()
         {
-            LevelEvent.DestroyAllExcludePlayer.Invoke(InstancedPlayer);
+            LevelEvent.DestructAllSpaceObjects.Invoke();
             ESpaceBackground.RandomizeSpaceBackground.Invoke();
             InstancedPlayer.transform.position = new Vector3(0,0,0);
             Factory.ResetId(true);
@@ -54,7 +51,7 @@ namespace System.LevelManaging
         {
             InstancedPlayer = null;
             DepthCounter = 0;
-            LevelEvent.DestroyAllExcludePlayer.Invoke(InstancedPlayer);
+            LevelEvent.DestructAllSpaceObjects.Invoke();
             Factory.ResetId(true);
             _levelCreator.CreateLevel();
             DepthCounter++;
@@ -82,7 +79,6 @@ namespace System.LevelManaging
         {
             var previousShip = (SpaceObject)InstancedPlayer;
             InstancedPlayer = target;
-            previousShip.DestroyItSelf();
         }
 
         public void SpawnExplosion(Transform transform)

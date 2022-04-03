@@ -1,17 +1,11 @@
-﻿using System.Core;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace System.Navigation
 {
-    public class ArrowCollider : ObjectBehaviour
+    public class ArrowCollider : MonoBehaviour
     {
         [SerializeField] private NavigationArrow _navigationArrow;
-
-
-        private void OnMouseDown() => _navigationArrow.SetPlayersTarget();
-
         
-        protected override void Initialize(){}
-        protected override void Execute(){}
+        private void OnMouseDown() => _navigationArrow.SetPlayersTarget();
     }
 }

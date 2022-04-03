@@ -1,54 +1,44 @@
-﻿using System.Core;
+﻿using System.Controller;
 using System.LevelManaging;
 using System.Navigation;
-using System.SpaceObjects.Dynamic;
 using UnityEngine;
 
 namespace System.SpaceObjects
 {
-    public abstract class SpaceObject : ObjectBehaviour
+    public abstract class SpaceObject : MonoBehaviour
     {
         public string ObjName => _objName;
-
 
         [SerializeField] private string _objName;
 
 
-        public void DestroyItSelf()
-        {
-            ENavigationCircle.RemoveNavigationCircleTarget.Invoke(this);
-            Destroy(gameObject);
-        }
-
-
-        protected override void Initialize()
-        {
-            if (this is Ship)
-            {
-                var ship = (Ship) this;
-                if (ship.ShipPriceCredits == 0) ENavigationCircle.AddNavigationCircleTarget.Invoke(this);
-            }
-            else
-            {
-                ENavigationCircle.AddNavigationCircleTarget.Invoke(this);
-            }
-        }
-
-
-        private void OnMouseDown()
-        {
-            LevelManager.InstancedPlayer.SetTarget(this == LevelManager.InstancedPlayer ? null : this);
-        }
+        private bool _isPlayer;
+        
 
         private void Awake()
         {
-            LevelEvent.DestroyAllExcludePlayer.AddListener(DestroyObject);
+            _isPlayer = gameObject.TryGetComponent<Player>(out var player);
+            if (_isPlayer) return;
+
+            LevelEvent.DestructAllSpaceObjects.AddListener(DestroyObject);
         }
 
-        private void DestroyObject(Ship player)
+        private void Start()
         {
-            if (this == player) return;
-            DestroyItSelf();
+            ENavigationCircle.AddNavigationCircleTarget.Invoke(this);
+        }
+
+        private void OnMouseDown()
+        {
+            EPlayer.SetPlayersShipTarget.Invoke(this);
+        }
+        
+
+        private void DestroyObject()
+        {
+            if (_isPlayer) return;
+            ENavigationCircle.RemoveNavigationCircleTarget.Invoke(this);
+            Destroy(gameObject);
         }
     }
 }

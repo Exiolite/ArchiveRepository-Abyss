@@ -1,7 +1,7 @@
 ﻿using System.Camera;
 using System.Navigation;
+using System.PlayerInput.Swipe;
 using System.SpaceObjects;
-using System.SpaceObjects.Dynamic;
 using UnityEngine;
 
 namespace System.Controller
@@ -15,6 +15,7 @@ namespace System.Controller
             _ship = GetComponent<Ship>();
             
             EPlayer.SetPlayersShipTarget.AddListener(_ship.SetTarget);
+            EInputSwipe.SwipeUp.AddListener(_ship.WarpToTarget);
         }
 
         private void Start()

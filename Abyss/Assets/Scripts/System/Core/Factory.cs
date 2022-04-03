@@ -1,21 +1,14 @@
 ﻿using System.SpaceObjects;
-using System.SpaceObjects.Dynamic;
 using UnityEngine;
 using Utilities;
 using Utilities.Extension;
 
 namespace System.Core
 {
-    public class Factory : ObjectBehaviour
+    public class Factory : MonoBehaviour
     {
         private readonly string _objectPreIndex = "IO";
         private int _objectId;
-        
-        
-        
-        protected override void Initialize(){}
-        protected override void Execute(){}
-        
         
         
         public void SpawnObject(GameObject target)
@@ -32,7 +25,6 @@ namespace System.Core
         public void SpawnParticlesAtTransform(Ship target, ParticleSystem targetParticles)
         {
             var particles = Instantiate(targetParticles, target.transform);
-            target.AddParticles(particles);
         }
 
         public SpaceObject SpawnSpaceObjectAtTransform(SpaceObject target, Transform parentTransform)

@@ -4,30 +4,23 @@ using UnityEngine;
 
 namespace System.Navigation
 {
-    public class NavigationCircleCanvas : ObjectBehaviour
+    public class NavigationCircleCanvas : MonoBehaviour
     {
-        [SerializeField] private ResourcesGui _resourcesGui;
+        [SerializeField] private UiResource _uiResource;
         [SerializeField] private PanelFlipper _panelFlipper;
 
-        
 
-        protected override void Initialize()
+
+        private void Awake()
         {
             _panelFlipper.Activate();
             GuiEvent.UpdateNavCircleResources.AddListener(UpdateText);
             _panelFlipper.Deactivate();
         }
 
-        protected override void Execute()
-        {
-            
-        }
-
-
         private void UpdateText()
         {
             _panelFlipper.ActivateWaitThenDisable();
-            _resourcesGui.SetResources(PlayersAccount.OnShipAccountResources);
         }
     }
 }

@@ -1,13 +1,12 @@
-﻿using System.Core;
-using System.Globalization;
+﻿using System.Globalization;
 using System.SpaceObjects;
 using TMPro;
 using UnityEngine;
-using Image = UnityEngine.UI.Image;
+using UnityEngine.UI;
 
 namespace System.Gui
 {
-    public class StationGui : ObjectBehaviour
+    public class StationGui : MonoBehaviour
     {
         [SerializeField] private SpaceObject _parentSpaceObject;
         
@@ -19,6 +18,13 @@ namespace System.Gui
         private int _materials;
         
 
+
+
+        private void Awake()
+        {
+            GetComponent<Canvas>().worldCamera = FindObjectOfType<UnityEngine.Camera>();
+        }
+        
         
         public void SetCredits(int credits)
         {
@@ -37,19 +43,6 @@ namespace System.Gui
             if (flag) _buyImage.color = Color.green;
             else _buyImage.color = Color.red;
         }
-
-
-        protected override void Initialize()
-        {
-            GetComponent<Canvas>().worldCamera = FindObjectOfType<UnityEngine.Camera>();
-        }
-
-        protected override void Execute()
-        {
-            
-        }
-
-
 
         private void UpdateCreditsCounter()
         {

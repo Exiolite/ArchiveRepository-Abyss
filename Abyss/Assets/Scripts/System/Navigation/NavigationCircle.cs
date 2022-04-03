@@ -3,7 +3,6 @@ using System.Gui.Components;
 using System.LevelManaging;
 using System.Linq;
 using System.SpaceObjects;
-using System.SpaceObjects.Dynamic;
 using UnityEngine;
 
 namespace System.Navigation

@@ -49,7 +49,7 @@ namespace System.Core
         private void InitializeCoreModules()
         {
             _factory = gameObject.AddComponent<Factory>();
-            gameObject.AddComponent<SwipeInput>();
+            gameObject.AddComponent<InputSwipeService>();
             _playersAccount = new Account.Account();
             _levelManager = new LevelManager(_factory);
         }

@@ -1,6 +1,6 @@
 ﻿namespace Components
 {
-    public struct ShipRotateComponent
+    public struct RotateWithSpeedComponent
     {
         public float RotateSpeed;
     }

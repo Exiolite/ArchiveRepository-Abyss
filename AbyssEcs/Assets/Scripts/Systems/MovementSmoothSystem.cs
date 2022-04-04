@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Systems
 {
-    public class ShipMovementSystem : IEcsRunSystem
+    public class MovementSmoothSystem : IEcsRunSystem
     {
-        private EcsFilter<ShipMovementComponent, TargetComponent, TransformComponent> _filter;
+        private EcsFilter<MovementSmoothComponent, TransformTargetComponent, TransformCurrentComponent> _filter;
         
         public void Run()
         {

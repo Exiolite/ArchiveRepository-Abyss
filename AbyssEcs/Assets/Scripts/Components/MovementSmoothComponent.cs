@@ -1,6 +1,6 @@
 ﻿namespace Components
 {
-    public struct ShipMovementComponent
+    public struct MovementSmoothComponent
     {
         public float CurrentSpeed;
         public float MaxSpeed;

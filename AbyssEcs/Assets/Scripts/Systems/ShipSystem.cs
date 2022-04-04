@@ -39,21 +39,19 @@ namespace Systems
             
             var entity = _world.NewEntity();
 
-            ref var transformComponent = ref entity.Get<TransformComponent>();
-            transformComponent.Transform = instancedShip.transform;
+            ref var transformCurrentComponent = ref entity.Get<TransformCurrentComponent>();
+            transformCurrentComponent.Transform = instancedShip.transform;
+            ref var transformTargetComponent = ref entity.Get<TransformTargetComponent>();
             
-            ref var movementComponent = ref entity.Get<ShipMovementComponent>();
+            ref var movementComponent = ref entity.Get<MovementSmoothComponent>();
             movementComponent.Velocity = shipPrefab.Velocity;
             movementComponent.MaxSpeed = shipPrefab.MaxSpeed;
 
-            ref var shipRotateComponent = ref entity.Get<ShipRotateComponent>();
+            ref var shipRotateComponent = ref entity.Get<RotateWithSpeedComponent>();
             shipRotateComponent.RotateSpeed = shipPrefab.RotateSpeed;
 
-            ref var targetingComponent = ref entity.Get<TargetComponent>();
-            
-            
-            ref var turretComponent = ref entity.Get<TurretsComponent>();
-            turretComponent.Turrets = instancedShip.TurretList;
+            ref var turretsComponent = ref entity.Get<TurretsComponent>();
+            turretsComponent.Turrets = instancedShip.TurretList;
 
             return entity;
         }

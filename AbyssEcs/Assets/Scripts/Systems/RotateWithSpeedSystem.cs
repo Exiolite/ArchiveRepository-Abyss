@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Systems
 {
-    public struct ShipRotateSystem : IEcsRunSystem
+    public struct RotateWithSpeedSystem : IEcsRunSystem
     {
-        private EcsFilter<ShipRotateComponent, TargetComponent, TransformComponent> _filter;
+        private EcsFilter<RotateWithSpeedComponent, TransformTargetComponent, TransformCurrentComponent> _filter;
 
 
         public void Run()

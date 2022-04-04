@@ -7,8 +7,8 @@ namespace Systems
 {
     public class EnemyPlayerSpotSystem : IEcsRunSystem
     {
-        private EcsFilter<EnemyTag, TransformComponent, EnemyPlayerSpotComponent> _enemyFilter;
-        private EcsFilter<PlayerTag, TransformComponent> _playerFilter;    
+        private EcsFilter<EnemyTag, TransformCurrentComponent, EnemyPlayerSpotComponent> _enemyFilter;
+        private EcsFilter<PlayerTag, TransformCurrentComponent> _playerFilter;    
         
         public void Run()
         {

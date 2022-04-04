@@ -12,7 +12,7 @@ namespace MonoBehaviours.Data
         [SerializeField] private string _description;
         public string Description => _description;
 
-        [Header("Engine")]
+        [Header("Engines")]
         [SerializeField] private float _maxSpeed;
         public float MaxSpeed => _maxSpeed;
 

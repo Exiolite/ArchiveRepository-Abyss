@@ -11,8 +11,8 @@ namespace Systems
     {
         private readonly EcsWorld _world;
         
-        private EcsFilter<CameraTag, TransformComponent, SmoothMovementComponent> _filter;
-        private EcsFilter<CameraFollowTag, TransformComponent> _filter2;
+        private EcsFilter<CameraTag, TransformCurrentComponent, MovementOffsetComponent> _filter;
+        private EcsFilter<CameraFollowTag, TransformCurrentComponent> _filter2;
 
         public void Init()
         {
@@ -20,10 +20,10 @@ namespace Systems
             var instancedCamera = Object.Instantiate(cameraPrefab, Vector3.zero, Quaternion.identity);
             var entity = _world.NewEntity();
 
-            ref var transformComponent = ref entity.Get<TransformComponent>();
+            ref var transformComponent = ref entity.Get<TransformCurrentComponent>();
             transformComponent.Transform = instancedCamera.transform;
 
-            ref var smoothMovementComponent = ref entity.Get<SmoothMovementComponent>();
+            ref var smoothMovementComponent = ref entity.Get<MovementOffsetComponent>();
             smoothMovementComponent.Offset = cameraPrefab.Offset;
             smoothMovementComponent.SmoothSpeed = cameraPrefab.SmoothSpeed;
 

@@ -2,7 +2,7 @@
 
 namespace Components
 {
-    public struct SmoothMovementComponent
+    public struct MovementOffsetComponent
     {
         public Vector3 Offset;
         public float SmoothSpeed;

@@ -43,8 +43,11 @@ public class SystemsManager : MonoBehaviour
         _systems.Add(new EnemyPlayerSpotSystem());
         _systems.Add(new EnemyTargetingSystem());
         _systems.Add(new ShipSystem());
-        _systems.Add(new ShipMovementSystem());
-        _systems.Add(new ShipRotateSystem());
+        _systems.Add(new MovementSmoothSystem());
+        _systems.Add(new MovementLinearSystem());
+        _systems.Add(new RotateWithSpeedSystem());
         _systems.Add(new TurretRotationSystem());
+        _systems.Add(new TurretShootSystem());
+        _systems.Add(new DelayDestroySystem());
     }
 }

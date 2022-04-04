@@ -7,7 +7,7 @@ namespace Systems
 {
     public class PlayerTargetingSystem : IEcsInitSystem
     {
-        private EcsFilter<PlayerTag, TargetingComponent, TransformComponent> _filter;
+        private EcsFilter<PlayerTag, TargetComponent, TransformComponent> _filter;
 
 
         public void Init()

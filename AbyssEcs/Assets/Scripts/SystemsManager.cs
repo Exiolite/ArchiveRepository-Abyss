@@ -17,7 +17,6 @@ public class SystemsManager : MonoBehaviour
     void Start () {
         _world = new EcsWorld ();
         _systems = new EcsSystems(_world);
-        AddInitSystems();
         AddRunSystems();
         AddSystemsWithUnityEvents();
         _systems.Init ();
@@ -37,18 +36,15 @@ public class SystemsManager : MonoBehaviour
         EPlayerTargeting.OnTargetClicked.AddListener(playerTargetingSystem.OnClick);
         _systems.Add(playerTargetingSystem);
     }
-        
-    private void AddInitSystems()
-    {
-        _systems.Add(new CameraMovementSystem());
-        _systems.Add(new ShipSystem());
-    }
-        
+
     private void AddRunSystems()
     {
+        _systems.Add(new CameraMovementSystem());
+        _systems.Add(new EnemyPlayerSpotSystem());
+        _systems.Add(new EnemyTargetingSystem());
+        _systems.Add(new ShipSystem());
         _systems.Add(new ShipMovementSystem());
         _systems.Add(new ShipRotateSystem());
         _systems.Add(new TurretRotationSystem());
-        _systems.Add(new EnemyTargetingSystem());
     }
 }

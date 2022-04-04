@@ -2,7 +2,7 @@
 
 namespace Components
 {
-    public struct TargetingComponent
+    public struct TargetComponent
     {
         public Transform Transform;
     }

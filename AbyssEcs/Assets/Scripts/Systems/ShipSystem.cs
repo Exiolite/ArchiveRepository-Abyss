@@ -1,6 +1,5 @@
 ﻿using Components;
 using Leopotam.Ecs;
-using MonoBehaviours;
 using MonoBehaviours.Data;
 using Tags;
 using UnityEngine;
@@ -13,27 +12,30 @@ namespace Systems
 
         public void Init()
         {
-            SpawnPlayerShip();
-            SpawnEnemyShip();
+            SpawnPlayerShip(Vector3.zero);
+            SpawnEnemyShip(new Vector3(120, 0,0));
         }
 
-        private void SpawnPlayerShip()
+        private void SpawnPlayerShip(Vector3 position)
         {
-            var entity = SpawnShip();
+            var entity = SpawnShip(position);
             ref var playerTag = ref entity.Get<PlayerTag>();
             ref var cameraFollowTag = ref entity.Get<CameraFollowTag>();
         }
         
-        private void SpawnEnemyShip()
+        private void SpawnEnemyShip(Vector3 position)
         {
-            var entity = SpawnShip();
+            var entity = SpawnShip(position);
             ref var enemyTag = ref entity.Get<EnemyTag>();
+
+            ref var enemyLookRangeComponent = ref entity.Get<EnemyPlayerSpotComponent>();
+            enemyLookRangeComponent.Range = 100;
         }
 
-        private EcsEntity SpawnShip()
+        private EcsEntity SpawnShip(Vector3 position)
         {
             var shipPrefab = Resources.Load<ShipData>("Prefabs/Ships/Ship");
-            var instancedShip = Object.Instantiate(shipPrefab, Vector3.zero, Quaternion.identity);
+            var instancedShip = Object.Instantiate(shipPrefab, position, Quaternion.identity);
             
             var entity = _world.NewEntity();
 
@@ -47,7 +49,7 @@ namespace Systems
             ref var shipRotateComponent = ref entity.Get<ShipRotateComponent>();
             shipRotateComponent.RotateSpeed = shipPrefab.RotateSpeed;
 
-            ref var targetingComponent = ref entity.Get<TargetingComponent>();
+            ref var targetingComponent = ref entity.Get<TargetComponent>();
             
             
             ref var turretComponent = ref entity.Get<TurretsComponent>();

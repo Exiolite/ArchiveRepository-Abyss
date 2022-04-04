@@ -6,7 +6,7 @@ namespace Systems
 {
     public struct ShipRotateSystem : IEcsRunSystem
     {
-        private EcsFilter<ShipRotateComponent, TargetingComponent, TransformComponent> _filter;
+        private EcsFilter<ShipRotateComponent, TargetComponent, TransformComponent> _filter;
 
 
         public void Run()

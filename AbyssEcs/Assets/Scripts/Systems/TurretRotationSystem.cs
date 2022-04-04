@@ -6,7 +6,7 @@ namespace Systems
 {
     public class TurretRotationSystem : IEcsRunSystem
     {
-        private EcsFilter<TurretsComponent, TargetingComponent, TransformComponent> _filter;
+        private EcsFilter<TurretsComponent, TargetComponent, TransformComponent> _filter;
 
 
         public void Run()

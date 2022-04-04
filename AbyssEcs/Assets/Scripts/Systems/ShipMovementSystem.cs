@@ -6,7 +6,7 @@ namespace Systems
 {
     public class ShipMovementSystem : IEcsRunSystem
     {
-        private EcsFilter<ShipMovementComponent, TargetingComponent, TransformComponent> _filter;
+        private EcsFilter<ShipMovementComponent, TargetComponent, TransformComponent> _filter;
         
         public void Run()
         {

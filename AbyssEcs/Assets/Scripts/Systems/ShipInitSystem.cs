@@ -19,20 +19,22 @@ namespace Systems
         private void SpawnPlayerShip(Vector3 position)
         {
             var shipData = ShipScriptableObject.Get();
-            var instancedShip = Object.Instantiate(shipData.ShipPrefab, position, Quaternion.identity) as Ship;
+            var instancedShip = Object.Instantiate(shipData.ShipPrefab, position, Quaternion.identity);
             
             var entity = _world.NewEntity();
+
+            ref var transformComponent = ref entity.Get<TransformComponent>();
+            transformComponent.Transform = instancedShip.transform;
             
             ref var movementComponent = ref entity.Get<ShipMovementComponent>();
-            movementComponent.Transform = instancedShip.transform;
             movementComponent.Velocity = shipData.Velocity;
-            movementComponent.AngleSpeed = shipData.AngleSpeed;
             movementComponent.MaxSpeed = shipData.MaxSpeed;
 
+            ref var shipRotateComponent = ref entity.Get<ShipRotateComponent>();
+            shipRotateComponent.AngleSpeed = shipData.AngleSpeed;
+
             ref var targetingComponent = ref entity.Get<TargetingComponent>();
-            targetingComponent.CurrentTransform = instancedShip.transform;
-            
-            ref var playerComponent = ref entity.Get<PlayerTag>();
+            ref var playerTag = ref entity.Get<PlayerTag>();
             
             ref var turretComponent = ref entity.Get<TurretsComponent>();
             turretComponent.Turrets = instancedShip.TurretList;
@@ -44,15 +46,18 @@ namespace Systems
             var instancedShip = Object.Instantiate(shipData.ShipPrefab, position, Quaternion.identity);
             
             var entity = _world.NewEntity();
+
+            ref var transformComponent = ref entity.Get<TransformComponent>();
+            transformComponent.Transform = instancedShip.transform;
             
             ref var movementComponent = ref entity.Get<ShipMovementComponent>();
-            movementComponent.Transform = instancedShip.transform;
             movementComponent.Velocity = shipData.Velocity;
-            movementComponent.AngleSpeed = shipData.AngleSpeed;
             movementComponent.MaxSpeed = shipData.MaxSpeed;
+            
+            ref var shipRotateComponent = ref entity.Get<ShipRotateComponent>();
+            shipRotateComponent.AngleSpeed = shipData.AngleSpeed;
 
             ref var targetingComponent = ref entity.Get<TargetingComponent>();
-            targetingComponent.CurrentTransform = instancedShip.transform;
             ref var enemyComponent = ref entity.Get<EnemyTag>();
             
             ref var turretComponent = ref entity.Get<TurretsComponent>();

@@ -19,7 +19,7 @@ namespace Systems
             foreach (var item in _filter)
             {
                 ref var targetingComponent = ref _filter.Get2(item);
-                targetingComponent.TargetTransform = transform;
+                targetingComponent.Transform = transform;
             }
         }
     }

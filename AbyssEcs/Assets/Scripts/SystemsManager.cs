@@ -33,6 +33,7 @@ namespace MonoBehaviours
         private void AddSystems()
         {
             _systems.Add (new ShipMovementSystem());
+            _systems.Add (new ShipRotateSystem());
             _systems.Add(new ShipInitSystem());
             _systems.Add(new EnemyTargetingSystem());
             

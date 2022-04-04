@@ -1,6 +1,7 @@
 using Systems;
 using Events;
 using Leopotam.Ecs;
+using MonoBehaviours;
 using UnityEngine;
 
 public class SystemsManager : MonoBehaviour
@@ -39,7 +40,8 @@ public class SystemsManager : MonoBehaviour
         
     private void AddInitSystems()
     {
-        _systems.Add(new ShipInitSystem());
+        _systems.Add(new CameraMovementSystem());
+        _systems.Add(new ShipSystem());
     }
         
     private void AddRunSystems()

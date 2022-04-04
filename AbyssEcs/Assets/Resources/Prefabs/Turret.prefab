@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64935a418d940a79f31212baf874dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _turretProjectileData: {fileID: 0}
 --- !u!1 &592342424972571882
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,7 +72,7 @@ Transform:
   m_GameObject: {fileID: 592342424972571882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 15, z: 1}
+  m_LocalScale: {x: 11.28, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6071686369622124491}
   m_RootOrder: 0
@@ -152,7 +153,7 @@ Transform:
   m_GameObject: {fileID: 2555447685364175116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6071686369622124491}
   m_RootOrder: 1

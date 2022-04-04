@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using MonoBehaviours;
+using MonoBehaviours.Data;
 
 namespace Components
 {
     public struct TurretsComponent
     {
-        public List<Turret> Turrets;
+        public List<TurretData> Turrets;
     }
 }

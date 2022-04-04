@@ -17,13 +17,13 @@ namespace Systems
                 
                 ref var transform = ref movementComponent.Transform;
                 ref var targetTransform = ref targetingComponent.TargetTransform;
-                
-                var speed = 0.0f;
-                var resultSpeed = 0.0f;
+
+                ref var speed = ref movementComponent.CurrentSpeed;
 
                 if (targetTransform)
                 {
-                    resultSpeed = Mathf.Clamp(speed + (movementComponent.Velocity * Time.deltaTime), 0, movementComponent.MaxSpeed);
+                    speed = Mathf.Clamp((speed + (movementComponent.Velocity * Time.deltaTime)), 0, movementComponent.MaxSpeed);
+                    
                     var directionToTarget = targetTransform.transform.position - transform.position;
                     var angleToTarget = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
                     var targetRotation = Quaternion.Euler(0,0, angleToTarget);
@@ -31,9 +31,9 @@ namespace Systems
                 }
                 else
                 {
-                    resultSpeed = Mathf.Clamp(speed - movementComponent.MaxSpeed * Time.deltaTime, 0, movementComponent.MaxSpeed);
+                    speed = Mathf.Clamp(speed - (speed * Time.deltaTime), 0, movementComponent.MaxSpeed);
                 }
-                transform.Translate(transform.up * resultSpeed, Space.World);
+                transform.Translate(transform.right * speed, Space.World);
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using Components;
 using Leopotam.Ecs;
+using MonoBehaviours;
 using ScriptableObjects;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ namespace Systems
         private void SpawnPlayerShip(Vector3 position)
         {
             var shipData = ShipScriptableObject.Get();
-            var instancedShip = Object.Instantiate(shipData.ShipPrefab, position, Quaternion.identity);
+            var instancedShip = Object.Instantiate(shipData.ShipPrefab, position, Quaternion.identity) as Ship;
             
             var entity = _world.NewEntity();
             
@@ -29,7 +30,12 @@ namespace Systems
             movementComponent.MaxSpeed = shipData.MaxSpeed;
 
             ref var targetingComponent = ref entity.Get<TargetingComponent>();
-            ref var playerComponent = ref entity.Get<PlayerComponent>();
+            targetingComponent.CurrentTransform = instancedShip.transform;
+            
+            ref var playerComponent = ref entity.Get<PlayerTag>();
+            
+            ref var turretComponent = ref entity.Get<TurretsComponent>();
+            turretComponent.Turrets = instancedShip.TurretList;
         }
         
         private void SpawnEnemyShip(Vector3 position)
@@ -46,7 +52,11 @@ namespace Systems
             movementComponent.MaxSpeed = shipData.MaxSpeed;
 
             ref var targetingComponent = ref entity.Get<TargetingComponent>();
-            ref var enemyComponent = ref entity.Get<EnemyComponent>();
+            targetingComponent.CurrentTransform = instancedShip.transform;
+            ref var enemyComponent = ref entity.Get<EnemyTag>();
+            
+            ref var turretComponent = ref entity.Get<TurretsComponent>();
+            turretComponent.Turrets = instancedShip.TurretList;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Components
 {
-    public struct EnemyComponent
+    public struct EnemyTag
     {
         
     }

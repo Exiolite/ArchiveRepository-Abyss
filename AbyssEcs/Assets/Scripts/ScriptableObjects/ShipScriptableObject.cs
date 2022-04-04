@@ -1,12 +1,13 @@
-﻿using UnityEngine;
+﻿using MonoBehaviours;
+using UnityEngine;
 
 namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "Ship", menuName = "SpaceObject/Ship", order = 51)]
     public class ShipScriptableObject : ScriptableObject
     {
-        public GameObject ShipPrefab => _shipPrefab;
-        [SerializeField] private GameObject _shipPrefab;
+        public Ship ShipPrefab => _shipPrefab;
+        [SerializeField] private Ship _shipPrefab;
         
         public float MaxSpeed => _maxSpeed;
         [SerializeField] private float _maxSpeed;

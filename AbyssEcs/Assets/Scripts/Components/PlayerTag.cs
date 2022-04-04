@@ -1,6 +1,6 @@
 ﻿namespace Components
 {
-    public struct PlayerComponent
+    public struct PlayerTag
     {
         public int Money;
     }

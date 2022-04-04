@@ -1,5 +1,6 @@
 ﻿using System;
 using Systems;
+using Events;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -34,6 +35,12 @@ namespace MonoBehaviours
             _systems.Add (new ShipMovementSystem());
             _systems.Add(new ShipInitSystem());
             _systems.Add(new EnemyTargetingSystem());
+            
+            var playerTargetingSystem = new PlayerTargetingSystem();
+            EPlayerTargeting.OnTargetClicked.AddListener(playerTargetingSystem.OnClick);
+            _systems.Add(playerTargetingSystem);
+
+            _systems.Add(new TurretRotationSystem());
         }
     }
 }

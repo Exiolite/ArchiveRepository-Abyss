@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   _shipPrefab: {fileID: 0}
-  _maxSpeed: 0
-  _velocity: 0
-  _angleSpeed: 0
+  _maxSpeed: 1
+  _velocity: 0.5
+  _angleSpeed: 150

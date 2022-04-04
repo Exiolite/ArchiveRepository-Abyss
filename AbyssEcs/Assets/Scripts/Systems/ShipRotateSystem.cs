@@ -22,7 +22,7 @@ namespace Systems
                     var directionToTarget = targetComponent.Transform.position - transformComponent.Transform.position;
                     var angleToTarget = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
                     var targetRotation = Quaternion.Euler(0,0, angleToTarget);
-                    transformComponent.Transform.rotation = Quaternion.Lerp(transformComponent.Transform.rotation, targetRotation, Time.deltaTime * shipRotateComponent.AngleSpeed / 10);
+                    transformComponent.Transform.rotation = Quaternion.Lerp(transformComponent.Transform.rotation, targetRotation, Time.deltaTime * shipRotateComponent.RotateSpeed / 10);
                 }
             }
         }

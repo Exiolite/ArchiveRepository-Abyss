@@ -49,6 +49,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5e57eac7554213a3ac3eb69a91fe3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _name: Test
+  _description: wetwet
+  _maxSpeed: 20
+  _velocity: 10
+  _rotateSpeed: 15
   _turretList:
   - {fileID: 1275630350128220362}
   - {fileID: 3748061846733166921}

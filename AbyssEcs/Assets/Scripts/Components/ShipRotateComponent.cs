@@ -2,6 +2,6 @@
 {
     public struct ShipRotateComponent
     {
-        public float AngleSpeed;
+        public float RotateSpeed;
     }
 }

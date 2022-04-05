@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Systems
 {
-    public class DelayDestroySystem : IEcsRunSystem
+    public class DelayDestroyRunSystem : IEcsRunSystem
     {
         private EcsWorld _world;
         private EcsFilter<DelayDestroyComponent, TransformCurrentComponent> _filter;

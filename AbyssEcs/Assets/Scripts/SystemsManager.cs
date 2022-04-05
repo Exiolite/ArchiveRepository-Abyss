@@ -32,22 +32,24 @@ public class SystemsManager : MonoBehaviour
 
     private void AddSystemsWithUnityEvents()
     {
-        var playerTargetingSystem = new PlayerTargetingSystem();
+        var playerTargetingSystem = new PlayerTargetEventSystem();
         EPlayerTargeting.OnTargetClicked.AddListener(playerTargetingSystem.OnClick);
         _systems.Add(playerTargetingSystem);
     }
 
     private void AddRunSystems()
     {
-        _systems.Add(new CameraMovementSystem());
-        _systems.Add(new EnemyPlayerSpotSystem());
-        _systems.Add(new EnemyTargetingSystem());
-        _systems.Add(new ShipSystem());
-        _systems.Add(new MovementSmoothSystem());
-        _systems.Add(new MovementLinearSystem());
-        _systems.Add(new RotateWithSpeedSystem());
-        _systems.Add(new TurretRotationSystem());
-        _systems.Add(new TurretShootSystem());
-        _systems.Add(new DelayDestroySystem());
+        _systems.Add(new ShipInitSystem());
+        _systems.Add(new CameraInitSystem());
+        _systems.Add(new CameraTargetRunSystem());
+        _systems.Add(new MovementOffsetRunSystem());
+        _systems.Add(new MovementSmoothRunSystem());
+        _systems.Add(new MovementLinearRunSystem());
+        _systems.Add(new RotateWithSpeedRunSystem());
+        _systems.Add(new DelayDestroyRunSystem());
+        _systems.Add(new TurretRotationRunSystem());
+        _systems.Add(new TurretShootRunSystem());
+        _systems.Add(new EnemyPlayerSpotRunSystem());
+        _systems.Add(new EnemyTargetRunSystem());
     }
 }

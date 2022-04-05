@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Systems
 {
-    public struct RotateWithSpeedSystem : IEcsRunSystem
+    public struct RotateWithSpeedRunSystem : IEcsRunSystem
     {
         private EcsFilter<RotateWithSpeedComponent, TransformTargetComponent, TransformCurrentComponent> _filter;
 

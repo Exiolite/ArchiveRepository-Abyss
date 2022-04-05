@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Systems
 {
-    public class TurretShootSystem : IEcsRunSystem
+    public class TurretShootRunSystem : IEcsRunSystem
     {
         private EcsWorld _world;
         private EcsFilter<TurretsComponent, TransformTargetComponent, TransformCurrentComponent> _filter;

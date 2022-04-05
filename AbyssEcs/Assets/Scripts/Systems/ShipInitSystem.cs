@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Systems
 {
-    public class ShipSystem : IEcsInitSystem
+    public class ShipInitSystem : IEcsInitSystem
     {
         private readonly EcsWorld _world = null;
 
@@ -20,7 +20,7 @@ namespace Systems
         {
             var entity = SpawnShip(position);
             ref var playerTag = ref entity.Get<PlayerTag>();
-            ref var cameraFollowTag = ref entity.Get<CameraFollowTag>();
+            ref var cameraTargetTag = ref entity.Get<CameraTargetTag>();
         }
         
         private void SpawnEnemyShip(Vector3 position)

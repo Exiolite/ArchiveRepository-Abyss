@@ -4,7 +4,7 @@ using Tags;
 
 namespace Systems
 {
-    public class EnemyTargetingSystem : IEcsRunSystem
+    public class EnemyTargetRunSystem : IEcsRunSystem
     {
         private EcsFilter<EnemyTag, TransformTargetComponent, EnemyPlayerSpotComponent> _filter;
         private EcsFilter<PlayerTag, TransformCurrentComponent> _filter2;

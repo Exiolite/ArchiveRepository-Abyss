@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Systems
 {
-    public class PlayerTargetingSystem : IEcsInitSystem
+    public class PlayerTargetEventSystem : IEcsInitSystem
     {
         private EcsFilter<PlayerTag, TransformTargetComponent, TransformCurrentComponent> _filter;
 

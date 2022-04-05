@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Systems
 {
-    public class MovementLinearSystem : IEcsRunSystem
+    public class MovementLinearRunSystem : IEcsRunSystem
     {
         private EcsFilter<MovementLinearComponent, TransformCurrentComponent> _filter;
 

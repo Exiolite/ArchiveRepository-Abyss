@@ -1,6 +1,6 @@
 ﻿namespace Tags
 {
-    public struct CameraFollowTag
+    public struct CameraTargetTag
     {
         
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Systems
 {
-    public class EnemyPlayerSpotSystem : IEcsRunSystem
+    public class EnemyPlayerSpotRunSystem : IEcsRunSystem
     {
         private EcsFilter<EnemyTag, TransformCurrentComponent, EnemyPlayerSpotComponent> _enemyFilter;
         private EcsFilter<PlayerTag, TransformCurrentComponent> _playerFilter;    
